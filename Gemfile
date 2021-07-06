@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.8'
 gem 'devise', '~> 4.8'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
-gem 'sqlite3', '~> 1.4'
+
 gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
@@ -28,8 +28,14 @@ group :development do
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
+  gem 'sqlite3', '~> 1.4'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+  gem 'pg', '~> 1.2', '>= 1.2.3'
+  #gem 'rails_12factor', '~> 0.0.3'
 end
 
 group :test do
